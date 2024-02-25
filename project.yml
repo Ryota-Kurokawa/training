@@ -20,10 +20,6 @@ targets:
           
     sources:
       - Training
-      - project.yml
-      - .gitignore
-      - .swiftlint.yml
-      - .swift-version
       
     settings:
       base:
@@ -50,6 +46,26 @@ targets:
           [UIInterfaceOrientationPortrait, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         UISupportedInterfaceOrientations~ipad:
           [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
-
+          
+  TrainingTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - TrainingTests
+    settings:
+      base:
+        INFO_PLIST_FILE: TrainingTests/Info.plist
+    dependences:
+      - target: Training
+        
+  TrainingUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: TrainingUITests
+    settings:
+      base:
+        INFOPLIST_FILE: TrainingUITests/Info.plist
+    dependencies:
+      - target: Training
 
 
